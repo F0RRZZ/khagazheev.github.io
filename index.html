@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Марат Хагажеев | Backend Developer</title>
+        <meta name="description" content="Backend-разработчик с опытом работы в Студии Артемия Лебедева и Яндекс. Специализация: Python, Django, Django REST Framework, Docker, PostgreSQL.">
+        <meta name="keywords" content="backend разработчик, Python, Django, DRF, Docker, PostgreSQL, резюме, портфолио, хагажеев, марат">
+        <meta name="author" content="Марат Хагажеев">
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://marat.tech/">
+        <meta property="og:title" content="Марат Хагажеев - Backend Developer">
+        <meta property="og:description" content="Backend-разработчик с опытом работы в Студии Артемия Лебедева и Яндекс.">
+        <meta property="og:image" content="https://marat.tech/files/khagazheev_og.png">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://marat.tech/">
+        <meta property="twitter:title" content="Марат Хагажеев - Backend Developer">
+        <meta property="twitter:description" content="Backend-разработчик с опытом работы в Студии Артемия Лебедева и Яндекс.">
+        <meta property="twitter:image" content="https://marat.tech/files/khagazheev_og.png">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/animate.css">
+        
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/site.webmanifest">
+
+        <style>
+            :root {
+                --primary-color: #000;
+                --secondary-color: #242424;
+                --accent-color: #0BB7ED;
+                --bg-color: #fff;
+                --text-color: #000;
+                --text-secondary: #242424;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                padding: 20px;
+                font-family: 'Inter', sans-serif;
+                color: var(--text-color);
+                background-color: var(--bg-color);
+                line-height: 1.5;
+            }
+
+            a {
+                color: var(--accent-color);
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            .container {
+                max-width: 1440px;
+                margin: 0 auto;
+            }
+
+            /* Header section */
+            .header {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 40px;
+            }
+
+            .name-block {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+
+            @media (min-width: 768px) {
+                .name-block {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
+
+            .my-name {
+                font-size: clamp(48px, 8vw, 148px);
+                font-weight: 700;
+                line-height: 1;
+                margin-bottom: 20px;
+            }
+
+            .position {
+                font-size: clamp(28px, 4vw, 72px);
+                color: var(--text-secondary);
+                margin-bottom: 20px;
+            }
+
+            .contacts {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            @media (min-width: 768px) {
+                .contacts {
+                    align-items: flex-start;
+                }
+            }
+
+            .contact-block {
+                display: flex;
+                align-items: center;
+            }
+
+            .contact-link {
+                margin-left: 10px;
+                font-size: clamp(16px, 2vw, 28px);
+            }
+
+            .tech-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin: 40px 0;
+            }
+
+            .tech-tag {
+                padding: 10px 20px;
+                border-radius: 20px;
+                color: white;
+                font-size: clamp(14px, 2vw, 24px);
+                white-space: nowrap;
+            }
+
+            .experience {
+                margin-top: 60px;
+            }
+
+            .period {
+                display: flex;
+                flex-direction: column;
+                margin: 30px 0;
+            }
+
+            @media (min-width: 768px) {
+                .period {
+                    flex-direction: row;
+                }
+            }
+
+            .period-logo-block {
+                display: flex;
+                margin-bottom: 20px;
+            }
+
+            @media (min-width: 768px) {
+                .period-logo-block {
+                    width: 20%;
+                    justify-content: center;
+                    margin-bottom: 0;
+                    padding-left: 15px;
+                }
+            }
+
+            .period-logo {
+                width: 60px;
+                height: 60px;
+                margin-right: 20px;
+            }
+
+            .period-name-block {
+                flex: 1;
+            }
+
+            .period-name {
+                font-size: clamp(28px, 4vw, 64px);
+                font-weight: 600;
+            }
+
+            .period-year-block {
+                margin: 20px 0;
+            }
+
+            @media (min-width: 768px) {
+                .period-year-block {
+                    width: 20%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    margin: 0;
+                }
+            }
+
+            .period-year {
+                font-size: clamp(24px, 3vw, 48px);
+                color: var(--text-secondary);
+            }
+
+            .period-info-block {
+                flex: 1;
+                margin-top: 20px;
+            }
+
+            @media (min-width: 768px) {
+                .period-info-block {
+                    margin-top: 0;
+                }
+            }
+
+            .period-info-title {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .period-subtitle {
+                font-size: clamp(18px, 2vw, 32px);
+                color: var(--text-secondary);
+            }
+
+            .period-info-description {
+                font-size: clamp(16px, 2vw, 24px);
+                margin-bottom: 30px;
+            }
+
+            .period-line-block {
+                display: none;
+            }
+
+            @media (min-width: 1024px) {
+                .period-line-block {
+                    display: flex;
+                    justify-content: center;
+                    width: 20%;
+                }
+            }
+
+            .period-line {
+                width: 3px;
+                background-color: var(--primary-color);
+            }
+
+            .media-block {
+                width: 100%;
+                margin: 20px 0;
+            }
+
+            @media (min-width: 1024px) {
+                .media-block {
+                    width: 60%;
+                    margin: 0;
+                }
+            }
+
+            .media-content {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            @media (min-width: 1024px) {
+                .timeline-row {
+                    display: flex;
+                }
+
+                .empty-block {
+                    width: 20%;
+                }
+            }
+
+            .wow {
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Header section -->
+            <header class="header">
+                <div class="name-block wow fadeIn">
+                    <div>
+                        <h1 class="my-name">марат хагажеев</h1>
+                        <h2 class="position">backend-разработчик</h2>
+                    </div>
+                    <div class="contacts">
+                        <div class="contact-block">
+                            <img src="files/github-mark.svg" width="24" height="24" alt="GitHub">
+                            <a href="https://github.com/F0RRZZ" class="contact-link">F0RRZZ</a>
+                        </div>
+                        <div class="contact-block">
+                            <img src="files/gmail-mark.svg" width="24" height="24" alt="Email">
+                            <a href="mailto:marathagazeev@gmail.com" class="contact-link">marathagazeev@gmail.com</a>
+                        </div>
+                        <div class="contact-block">
+                            <img src="files/telegram-logo.svg" width="24" height="24" alt="Telegram">
+                            <a href="https://t.me/khagazheev" class="contact-link">@khagazheev</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills section -->
+                <div class="tech-grid wow fadeIn">
+                    <p class="tech-tag" style="background-color: #092E20;">django</p>
+                    <p class="tech-tag" style="background-color: #FF160A;">django rest framework</p>
+                    <p class="tech-tag" style="background-color: #0BB7ED;">docker</p>
+                    <p class="tech-tag" style="background-color: #316192;">postgres</p>
+                    <p class="tech-tag" style="background-color: #4479A0;">mysql</p>
+                    <p class="tech-tag" style="background-color: #DD0032;">redis</p>
+                    <p class="tech-tag" style="background-color: #4EA94A;">mongodb</p>
+                    <p class="tech-tag" style="background-color: #FF6600;">rabbitmq</p>
+                    <p class="tech-tag" style="background-color: #A9CC53;">celery</p>
+                    <p class="tech-tag" style="background-color: #009639;">nginx</p>
+                </div>
+            </header>
+
+            <!-- Experience section -->
+            <main class="experience">
+                <!-- Art Lebedev Studio -->
+                <section>
+                    <div class="period wow fadeInLeft">
+                        <div class="period-logo-block">
+                            <img src="files/als_logo.png" class="period-logo" alt="Студия Артемия Лебедева" loading="lazy">
+                        </div>
+                        <div class="period-name-block">
+                            <p class="period-name">Студия Артемия Лебедева</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="period-line-block">
+                            <div class="period-line"></div>
+                        </div>
+                        <div class="media-block">
+                            <video class="media-content" 
+                                   src="videos/fokus_compressed.mp4" 
+                                   muted autoplay loop playsinline
+                                   aria-label="Демонстрация проекта Фокус">
+                            </video>
+                        </div>
+                        <div class="empty-block"></div>
+                    </div>
+
+                    <div class="period">
+                        <div class="period-year-block">
+                            <p class="period-year">2024</p>
+                        </div>
+                        <div class="period-info-block">
+                            <div class="period-info-title">
+                                <img src="files/fokus_logo.svg" class="period-logo" alt="Фокус" loading="lazy">
+                                <div>
+                                    <p class="period-name">Фокус</p>
+                                    <p class="period-subtitle">Старший разработчик</p>
+                                </div>
+                            </div>
+                            <p class="period-info-description">
+                                Конструктор идеальных презентаций. Являюсь ведущим разработчиком проекта, работаю над большинством клиентских механик продукта. Из самых крупных разработанных мною механик могу выделить генерацию презентаций с помощью ИИ, модуль сбора статистики презентаций, стикеры. Также работал над разработкой аналитических инструментов, оптимизацией кода и тестированием.
+                                <br>
+                                <a href="https://fokus.am">Фокус</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="period-line-block">
+                            <div class="period-line"></div>
+                        </div>
+                        <div class="media-block">
+                            <video class="media-content" 
+                                   src="videos/ironov_compressed.mp4" 
+                                   muted autoplay loop playsinline
+                                   aria-label="Демонстрация проекта Николая Иронова">
+                            </video>
+                        </div>
+                        <div class="empty-block"></div>
+                    </div>
+
+                    <div class="period">
+                        <div class="period-year-block">
+                            <p class="period-year">2024</p>
+                        </div>
+                        <div class="period-info-block">
+                            <div class="period-info-title">
+                                <img src="files/ironov_logo.png" class="period-logo" alt="Николай Иронов" loading="lazy">
+                                <div>
+                                    <p class="period-name">Николай Иронов</p>
+                                    <p class="period-subtitle">Младший разработчик</p>
+                                </div>
+                            </div>
+                            <p class="period-info-description">
+                                Занимался доработкой и созданием нового функционала аналитических инструментов. Также удалось поработать с небольшими клиентскими механиками, такими как тарифы и примеры логотипов.
+                                <br>
+                                <a href="https://ironov.ai">Николай Иронов</a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Yandex -->
+                <section>
+                    <div class="period wow fadeInLeft">
+                        <div class="period-logo-block">
+                            <img src="files/yandex-logo.svg" class="period-logo" alt="Яндекс" loading="lazy">
+                        </div>
+                        <div class="period-name-block">
+                            <p class="period-name">Яндекс</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="period-line-block">
+                            <div class="period-line"></div>
+                        </div>
+                        <div class="media-block">
+                            <img src="files/yandex-screen.png" class="media-content" alt="Скриншот работы в Яндекс" loading="lazy">
+                        </div>
+                        <div class="empty-block"></div>
+                    </div>
+
+                    <div class="period">
+                        <div class="period-year-block">
+                            <p class="period-year">2024</p>
+                        </div>
+                        <div class="period-info-block">
+                            <div class="period-info-title">
+                                <div>
+                                    <p class="period-name">Веб-разработка на Django</p>
+                                    <p class="period-subtitle">Ментор/ревьюер</p>
+                                </div>
+                            </div>
+                            <p class="period-info-description">
+                                Участвовал в качестве наставника в одном из сезонов специализации по веб-разработке на Django. В мои обязанности входило объяснение тем, связанных с фреймворком, помощь студентам в решении задач и проведение код-ревью их проектов. Я анализировал их работы, давал рекомендации по улучшению кода, помогал исправлять ошибки.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="period-line-block">
+                            <div class="period-line"></div>
+                        </div>
+                        <div class="media-block">
+                            <img src="files/django-cert.png" class="media-content" alt="Сертификат Django" loading="lazy">
+                        </div>
+                        <div class="empty-block"></div>
+                    </div>
+
+                    <div class="period">
+                        <div class="period-year-block">
+                            <p class="period-year">2023</p>
+                        </div>
+                        <div class="period-info-block">
+                            <div class="period-info-title">
+                                <div>
+                                    <p class="period-name">Веб-разработка на Django</p>
+                                    <p class="period-subtitle">Студент</p>
+                                </div>
+                            </div>
+                            <p class="period-info-description">
+                                За три месяца научился писать веб-приложения на Django. Весь пройденный материал закрепил двумя проектами. Также во время работы над одним из проектов получил опыт взаимодействия с командой.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="period-line-block">
+                            <div class="period-line"></div>
+                        </div>
+                        <div class="media-block">
+                            <img src="files/lyceum-cert.png" class="media-content" alt="Сертификат Лицея" loading="lazy">
+                        </div>
+                        <div class="empty-block"></div>
+                    </div>
+
+                    <div class="period">
+                        <div class="period-year-block">
+                            <p class="period-year">2021</p>
+                        </div>
+                        <div class="period-info-block">
+                            <div class="period-info-title">
+                                <div>
+                                    <p class="period-name">Веб-разработка на Django</p>
+                                    <p class="period-subtitle">Студент</p>
+                                </div>
+                            </div>
+                            <p class="period-info-description">
+                                На первом году обучения прошел базовые конструкции Python, научился работать с некоторыми стандартными и внешними библиотеками и узнал основы ООП. Во втором году продолжил изучение ООП, изучил такие библиотеки, как: PyQt5, pygame и Flask. Весь пройденный материал по данным библиотекам был закреплен проектами.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script src="js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                const lazyVideos = document.querySelectorAll("video[loading='lazy']");
+                
+                if ("IntersectionObserver" in window) {
+                    const lazyVideoObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(video) {
+                            if (video.isIntersecting) {
+                                for (var source in video.target.children) {
+                                    var videoSource = video.target.children[source];
+                                    if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                                        videoSource.src = videoSource.dataset.src;
+                                    }
+                                }
+                                
+                                video.target.load();
+                                video.target.classList.remove("lazy");
+                                lazyVideoObserver.unobserve(video.target);
+                            }
+                        });
+                    });
+                    
+                    lazyVideos.forEach(function(video) {
+                        lazyVideoObserver.observe(video);
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
