@@ -23,8 +23,8 @@
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/animate.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -34,12 +34,44 @@
 
         <style>
             :root {
-                --primary-color: #000;
-                --secondary-color: #242424;
-                --accent-color: #0BB7ED;
-                --bg-color: #fff;
-                --text-color: #000;
-                --text-secondary: #242424;
+                --primary-color: #0f172a;
+                --secondary-color: #334155;
+                --accent-color: #3b82f6;
+                --accent-hover: #2563eb;
+                --bg-color: #ffffff;
+                --surface-color: #f8fafc;
+                --text-color: #0f172a;
+                --text-secondary: #64748b;
+                --text-tertiary: #94a3b8;
+                --border-color: #e2e8f0;
+                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                --rounded-sm: 0.125rem;
+                --rounded-md: 0.375rem;
+                --rounded-lg: 0.5rem;
+                --rounded-xl: 0.75rem;
+                --rounded-2xl: 1rem;
+                --rounded-full: 9999px;
+                --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+                --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --primary-color: #f8fafc;
+                    --secondary-color: #e2e8f0;
+                    --accent-color: #60a5fa;
+                    --accent-hover: #3b82f6;
+                    --bg-color: #0f172a;
+                    --surface-color: #1e293b;
+                    --text-color: #f8fafc;
+                    --text-secondary: #cbd5e1;
+                    --text-tertiary: #94a3b8;
+                    --border-color: #334155;
+                }
             }
 
             * {
@@ -48,25 +80,35 @@
                 box-sizing: border-box;
             }
 
+            html {
+                scroll-behavior: smooth;
+            }
+
             body {
-                padding: 20px;
-                font-family: 'Inter', sans-serif;
+                padding: 2rem 1.5rem;
+                font-family: var(--font-sans);
                 color: var(--text-color);
                 background-color: var(--bg-color);
-                line-height: 1.5;
+                line-height: 1.6;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
 
             a {
                 color: var(--accent-color);
                 text-decoration: none;
+                transition: var(--transition);
+                font-weight: 500;
             }
 
             a:hover {
+                color: var(--accent-hover);
                 text-decoration: underline;
+                text-underline-offset: 3px;
             }
 
             .container {
-                max-width: 1440px;
+                max-width: 1200px;
                 margin: 0 auto;
             }
 
@@ -74,106 +116,142 @@
             .header {
                 display: flex;
                 flex-direction: column;
-                margin-bottom: 40px;
+                margin-bottom: 4rem;
+                position: relative;
             }
 
             .name-block {
                 display: flex;
                 flex-direction: column;
-                margin-bottom: 20px;
+                margin-bottom: 2.5rem;
+                gap: 1.5rem;
             }
 
             @media (min-width: 768px) {
                 .name-block {
                     flex-direction: row;
                     justify-content: space-between;
+                    align-items: flex-end;
+                    gap: 2rem;
                 }
             }
 
             .my-name {
-                font-size: clamp(48px, 8vw, 148px);
+                font-family: var(--font-heading);
+                font-size: clamp(2.5rem, 8vw, 5rem);
                 font-weight: 700;
-                line-height: 1;
-                margin-bottom: 20px;
+                line-height: 1.1;
+                letter-spacing: -0.025em;
+                margin-bottom: 0.5rem;
+                background: linear-gradient(to right, var(--text-color), var(--accent-color));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
             }
 
             .position {
-                font-size: clamp(28px, 4vw, 72px);
+                font-family: var(--font-heading);
+                font-size: clamp(1.5rem, 4vw, 2.5rem);
                 color: var(--text-secondary);
-                margin-bottom: 20px;
+                font-weight: 600;
+                line-height: 1.2;
+                letter-spacing: -0.01em;
             }
 
             .contacts {
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
-            }
-
-            @media (min-width: 768px) {
-                .contacts {
-                    align-items: flex-start;
-                }
+                gap: 1rem;
             }
 
             .contact-block {
                 display: flex;
                 align-items: center;
+                gap: 0.75rem;
+                padding: 0.5rem 0;
             }
 
             .contact-link {
-                margin-left: 10px;
-                font-size: clamp(16px, 2vw, 28px);
+                font-size: clamp(1rem, 2vw, 1.25rem);
+                color: var(--text-secondary);
+                transition: var(--transition);
+            }
+
+            .contact-link:hover {
+                color: var(--accent-color);
+                text-decoration: none;
             }
 
             .tech-grid {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 15px;
-                margin: 40px 0;
+                gap: 0.75rem;
+                margin: 3rem 0;
             }
 
             .tech-tag {
-                padding: 10px 20px;
-                border-radius: 20px;
+                padding: 0.5rem 1rem;
+                border-radius: var(--rounded-full);
                 color: white;
-                font-size: clamp(14px, 2vw, 24px);
+                font-size: 0.875rem;
+                font-weight: 500;
                 white-space: nowrap;
+                transition: var(--transition);
+                box-shadow: var(--shadow-sm);
+                transform: translateY(0);
+                will-change: transform;
+            }
+
+            .tech-tag:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-md);
             }
 
             .experience {
-                margin-top: 60px;
+                margin-top: 5rem;
             }
 
             .period {
                 display: flex;
                 flex-direction: column;
-                margin: 30px 0;
+                margin: 3rem 0;
+                position: relative;
             }
 
             @media (min-width: 768px) {
                 .period {
                     flex-direction: row;
+                    gap: 2rem;
                 }
             }
 
             .period-logo-block {
                 display: flex;
-                margin-bottom: 20px;
+                margin-bottom: 1.5rem;
+                width: 4rem;
+                height: 4rem;
+                border-radius: var(--rounded-lg);
+                background: var(--surface-color);
+                align-items: center;
+                justify-content: center;
+                padding: 0.75rem;
+                box-shadow: var(--shadow-sm);
+                border: 1px solid var(--border-color);
             }
 
             @media (min-width: 768px) {
                 .period-logo-block {
-                    width: 20%;
-                    justify-content: center;
+                    position: sticky;
+                    top: 2rem;
+                    align-self: flex-start;
                     margin-bottom: 0;
-                    padding-left: 15px;
                 }
             }
 
             .period-logo {
-                width: 60px;
-                height: 60px;
-                margin-right: 20px;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
             }
 
             .period-name-block {
@@ -181,32 +259,38 @@
             }
 
             .period-name {
-                font-size: clamp(28px, 4vw, 64px);
-                font-weight: 600;
+                font-family: var(--font-heading);
+                font-size: clamp(1.75rem, 4vw, 2.5rem);
+                font-weight: 700;
+                line-height: 1.2;
+                letter-spacing: -0.01em;
+                margin-bottom: 0.5rem;
             }
 
             .period-year-block {
-                margin: 20px 0;
+                margin: 1.5rem 0;
             }
 
             @media (min-width: 768px) {
                 .period-year-block {
-                    width: 20%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: flex-start;
+                    width: 10rem;
+                    position: sticky;
+                    top: 2rem;
+                    align-self: flex-start;
                     margin: 0;
                 }
             }
 
             .period-year {
-                font-size: clamp(24px, 3vw, 48px);
+                font-family: var(--font-heading);
+                font-size: clamp(1.25rem, 3vw, 1.5rem);
                 color: var(--text-secondary);
+                font-weight: 600;
             }
 
             .period-info-block {
                 flex: 1;
-                margin-top: 20px;
+                margin-top: 1.5rem;
             }
 
             @media (min-width: 768px) {
@@ -218,17 +302,22 @@
             .period-info-title {
                 display: flex;
                 align-items: center;
-                margin-bottom: 15px;
+                gap: 1rem;
+                margin-bottom: 1.25rem;
             }
 
             .period-subtitle {
-                font-size: clamp(18px, 2vw, 32px);
+                font-size: clamp(1rem, 2vw, 1.25rem);
                 color: var(--text-secondary);
+                font-weight: 500;
+                margin-top: 0.25rem;
             }
 
             .period-info-description {
-                font-size: clamp(16px, 2vw, 24px);
-                margin-bottom: 30px;
+                font-size: 1.125rem;
+                color: var(--text-secondary);
+                margin-bottom: 2rem;
+                line-height: 1.7;
             }
 
             .period-line-block {
@@ -239,46 +328,90 @@
                 .period-line-block {
                     display: flex;
                     justify-content: center;
-                    width: 20%;
+                    width: 2rem;
+                    position: relative;
                 }
-            }
-
-            .period-line {
-                width: 3px;
-                background-color: var(--primary-color);
+                
+                .period-line {
+                    width: 2px;
+                    background: linear-gradient(to bottom, var(--accent-color), var(--border-color));
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                }
+                
+                .period-line::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    border-radius: var(--rounded-full);
+                    background-color: var(--accent-color);
+                    border: 2px solid var(--bg-color);
+                }
             }
 
             .media-block {
                 width: 100%;
-                margin: 20px 0;
+                margin: 2rem 0;
+                border-radius: var(--rounded-xl);
+                overflow: hidden;
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition);
+            }
+            
+            .media-block:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-xl);
             }
 
             @media (min-width: 1024px) {
                 .media-block {
-                    width: 60%;
-                    margin: 0;
+                    width: calc(100% - 12rem);
+                    margin: 0 0 2rem 10rem;
                 }
             }
 
             .media-content {
                 width: 100%;
                 height: auto;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                display: block;
             }
 
-            @media (min-width: 1024px) {
-                .timeline-row {
-                    display: flex;
-                }
-
-                .empty-block {
-                    width: 20%;
-                }
+            .timeline-row {
+                position: relative;
             }
-
-            .wow {
-                visibility: hidden;
+            
+            .section-divider {
+                height: 1px;
+                background-color: var(--border-color);
+                margin: 4rem 0;
+                opacity: 0.5;
+            }
+            
+            /* Animations */
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .animate-fade {
+                animation: fadeIn 0.6s ease-out forwards;
+            }
+            
+            .delay-100 {
+                animation-delay: 0.1s;
+            }
+            
+            .delay-200 {
+                animation-delay: 0.2s;
+            }
+            
+            .delay-300 {
+                animation-delay: 0.3s;
             }
         </style>
     </head>
@@ -286,29 +419,29 @@
         <div class="container">
             <!-- Header section -->
             <header class="header">
-                <div class="name-block wow fadeIn">
+                <div class="name-block animate-fade">
                     <div>
                         <h1 class="my-name">марат хагажеев</h1>
                         <h2 class="position">backend-разработчик</h2>
                     </div>
-                    <div class="contacts">
+                    <div class="contacts animate-fade delay-100">
                         <div class="contact-block">
-                            <img src="files/github-mark.svg" width="24" height="24" alt="GitHub">
+                            <img src="files/github-mark.svg" width="24" height="24" alt="GitHub" loading="lazy">
                             <a href="https://github.com/F0RRZZ" class="contact-link">F0RRZZ</a>
                         </div>
                         <div class="contact-block">
-                            <img src="files/gmail-mark.svg" width="24" height="24" alt="Email">
+                            <img src="files/gmail-mark.svg" width="24" height="24" alt="Email" loading="lazy">
                             <a href="mailto:marathagazeev@gmail.com" class="contact-link">marathagazeev@gmail.com</a>
                         </div>
                         <div class="contact-block">
-                            <img src="files/telegram-logo.svg" width="24" height="24" alt="Telegram">
+                            <img src="files/telegram-logo.svg" width="24" height="24" alt="Telegram" loading="lazy">
                             <a href="https://t.me/khagazheev" class="contact-link">@khagazheev</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Skills section -->
-                <div class="tech-grid wow fadeIn">
+                <div class="tech-grid animate-fade delay-200">
                     <p class="tech-tag" style="background-color: #092E20;">django</p>
                     <p class="tech-tag" style="background-color: #FF160A;">django rest framework</p>
                     <p class="tech-tag" style="background-color: #0BB7ED;">docker</p>
@@ -326,7 +459,7 @@
             <main class="experience">
                 <!-- Art Lebedev Studio -->
                 <section>
-                    <div class="period wow fadeInLeft">
+                    <div class="period" data-aos="fade-up">
                         <div class="period-logo-block">
                             <img src="files/als_logo.png" class="period-logo" alt="Студия Артемия Лебедева" loading="lazy">
                         </div>
@@ -339,23 +472,22 @@
                         <div class="period-line-block">
                             <div class="period-line"></div>
                         </div>
-                        <div class="media-block">
+                        <div class="media-block" data-aos="fade-up" data-aos-delay="100">
                             <video class="media-content" 
                                    src="videos/fokus_compressed.mp4" 
                                    muted autoplay loop playsinline
                                    aria-label="Демонстрация проекта Фокус">
                             </video>
                         </div>
-                        <div class="empty-block"></div>
                     </div>
 
-                    <div class="period">
+                    <div class="period" data-aos="fade-up">
                         <div class="period-year-block">
                             <p class="period-year">2024</p>
                         </div>
                         <div class="period-info-block">
                             <div class="period-info-title">
-                                <img src="files/fokus_logo.svg" class="period-logo" alt="Фокус" loading="lazy">
+                                <img src="files/fokus_logo.svg" alt="Фокус" loading="lazy" width="64" height="64">
                                 <div>
                                     <p class="period-name">Фокус</p>
                                     <p class="period-subtitle">Старший разработчик</p>
@@ -373,23 +505,22 @@
                         <div class="period-line-block">
                             <div class="period-line"></div>
                         </div>
-                        <div class="media-block">
+                        <div class="media-block" data-aos="fade-up" data-aos-delay="100">
                             <video class="media-content" 
                                    src="videos/ironov_compressed.mp4" 
                                    muted autoplay loop playsinline
                                    aria-label="Демонстрация проекта Николая Иронова">
                             </video>
                         </div>
-                        <div class="empty-block"></div>
                     </div>
 
-                    <div class="period">
+                    <div class="period" data-aos="fade-up">
                         <div class="period-year-block">
                             <p class="period-year">2024</p>
                         </div>
                         <div class="period-info-block">
                             <div class="period-info-title">
-                                <img src="files/ironov_logo.png" class="period-logo" alt="Николай Иронов" loading="lazy">
+                                <img src="files/ironov_logo.png" alt="Николай Иронов" loading="lazy" width="64" height="64">
                                 <div>
                                     <p class="period-name">Николай Иронов</p>
                                     <p class="period-subtitle">Младший разработчик</p>
@@ -404,9 +535,11 @@
                     </div>
                 </section>
 
+                <div class="section-divider" data-aos="fade"></div>
+
                 <!-- Yandex -->
                 <section>
-                    <div class="period wow fadeInLeft">
+                    <div class="period" data-aos="fade-up">
                         <div class="period-logo-block">
                             <img src="files/yandex-logo.svg" class="period-logo" alt="Яндекс" loading="lazy">
                         </div>
@@ -419,13 +552,12 @@
                         <div class="period-line-block">
                             <div class="period-line"></div>
                         </div>
-                        <div class="media-block">
+                        <div class="media-block" data-aos="fade-up" data-aos-delay="100">
                             <img src="files/yandex-screen.png" class="media-content" alt="Скриншот работы в Яндекс" loading="lazy">
                         </div>
-                        <div class="empty-block"></div>
                     </div>
 
-                    <div class="period">
+                    <div class="period" data-aos="fade-up">
                         <div class="period-year-block">
                             <p class="period-year">2024</p>
                         </div>
@@ -446,13 +578,12 @@
                         <div class="period-line-block">
                             <div class="period-line"></div>
                         </div>
-                        <div class="media-block">
+                        <div class="media-block" data-aos="fade-up" data-aos-delay="100" style="width: 60%;">
                             <img src="files/django-cert.png" class="media-content" alt="Сертификат Django" loading="lazy">
                         </div>
-                        <div class="empty-block"></div>
                     </div>
 
-                    <div class="period">
+                    <div class="period" data-aos="fade-up">
                         <div class="period-year-block">
                             <p class="period-year">2023</p>
                         </div>
@@ -473,13 +604,12 @@
                         <div class="period-line-block">
                             <div class="period-line"></div>
                         </div>
-                        <div class="media-block">
+                        <div class="media-block" data-aos="fade-up" data-aos-delay="100">
                             <img src="files/lyceum-cert.png" class="media-content" alt="Сертификат Лицея" loading="lazy">
                         </div>
-                        <div class="empty-block"></div>
                     </div>
 
-                    <div class="period">
+                    <div class="period" data-aos="fade-up">
                         <div class="period-year-block">
                             <p class="period-year">2021</p>
                         </div>
@@ -499,9 +629,14 @@
             </main>
         </div>
 
-        <script src="js/wow.min.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
-            new WOW().init();
+            AOS.init({
+                duration: 600,
+                once: true,
+                easing: 'ease-out-quad',
+                offset: 100
+            });
             
             document.addEventListener("DOMContentLoaded", function() {
                 const lazyVideos = document.querySelectorAll("video[loading='lazy']");
